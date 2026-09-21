@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MenuCard from '../components/MenuCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Falafel from '../assets/food-assets/falafel.jpg';
+import FalafelBolle from '../assets/food-assets/falafelbolle.png';
+import FalafelWrap from '../assets/food-assets/falafelwrap.png';
+import SterkFalafel from '../assets/food-assets/sterkfalafel.png';
+import MangoLassi from '../assets/food-assets/mango.png';
+import Zalabia from '../assets/food-assets/zalabia.png';
+
+const menuItems = [
+  {
+    image: Falafel,
+    name: 'Klassisk Falafel',
+    description: 'Sprø falafel i pitabrød med salat og hvitløksaus.',
+    price: 'kr 89,-',
+  },
+  {
+    image: FalafelWrap,
+    name: 'Falafel Wrap',
+    description: 'Falafel rullet i lompe med tzatziki og syltet rødløk.',
+    price: 'kr 95,-',
+    isNew: true,
+  },
+  {
+    image: FalafelBolle,
+    name: 'Falafelbolle',
+    description: 'Falafel over quinoa, hummus og grønnsaker.',
+    price: 'kr 109,-',
+  },
+  {
+    image: SterkFalafel,
+    name: 'Ekstra Sterk Falafel',
+    description: 'For de tøffeste! Habanero-sausen slår hardt.',
+    price: 'kr 99,-',
+  },
+  {
+    image: MangoLassi,
+    name: 'Mango Lassi',
+    description: 'Kald og deilig drikke til å slukke ilden.',
+    price: 'kr 39,-',
+  },
+  {
+    image: Zalabia,
+    name: 'Zalabia',
+    description: 'Søte, sprø dessertboller med sukkersirup.',
+    price: 'kr 45,-',
+    isNew: true,
+  },
+];
+---
+
+<Layout title="Meny - Jens Falafel" description="Utforsk vår meny med falafel, wraps, boller og mer.">
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <SectionHeading
+      title="Vår meny"
+      subtitle="Hjemmelaget med ferske råvarer hver eneste dag"
+    />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {menuItems.map((item) => (
+        <MenuCard {...item} />
+      ))}
+    </div>
+  </section>
+</Layout>

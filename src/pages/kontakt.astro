@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+---
+
+<Layout title="Kontakt - Jens Falafel" description="Ta kontakt med Jens Falafel.">
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <SectionHeading
+      title="Kontakt oss"
+      subtitle="Vi hører gjerne fra deg"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-xl font-bold text-secondary mb-4">Besøk oss</h3>
+        <div class="space-y-3 text-gray-600">
+          <p>
+            <span class="font-semibold text-secondary">Adresse:</span><br />
+            Falafelgata 1, Oslo
+          </p>
+          <p>
+            <span class="font-semibold text-secondary">Telefon:</span><br />
+            700 00 000
+          </p>
+          <p>
+            <span class="font-semibold text-secondary">Åpningstider:</span><br />
+            Mandag - Søndag: 11:00 - 22:00
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md border border-gray-100 p-6">
+        <h3 class="text-xl font-bold text-secondary mb-4">Send oss en melding</h3>
+        <form class="space-y-4">
+          <div>
+            <label for="contact-name" class="block text-sm font-medium text-secondary mb-1">
+              Navn
+            </label>
+            <input
+              type="text"
+              id="contact-name"
+              placeholder="Ditt navn"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+          </div>
+          <div>
+            <label for="contact-email" class="block text-sm font-medium text-secondary mb-1">
+              E-post
+            </label>
+            <input
+              type="email"
+              id="contact-email"
+              placeholder="din@epost.no"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+          </div>
+          <div>
+            <label for="contact-message" class="block text-sm font-medium text-secondary mb-1">
+              Melding
+            </label>
+            <textarea
+              id="contact-message"
+              rows="4"
+              placeholder="Din melding..."
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-2 rounded-lg transition-colors"
+          >
+            Send melding
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>

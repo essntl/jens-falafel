@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  image: ImageMetadata;
+  name: string;
+  description: string;
+  price: string;
+  isNew?: boolean;
+}
+
+const { image, name, description, price, isNew = false } = Astro.props;
+---
+
+<div class="overflow-hidden rounded-lg bg-white border border-gray-100 outline-1 outline-gray-300/50 ">
+  <Image src={image} alt={name} class="w-full h-48 object-cover" loading="eager" />
+  <div class="p-6">
+    <h3 class="font-bold text-lg text-secondary mb-1">{name}</h3>
+    {isNew && (
+      <span class="inline-block bg-accent text-white text-xs font-semibold px-2 py-0.5 rounded mb-2">
+        Nyhet
+      </span>
+    )}
+    <p class="text-gray-600 text-sm mb-4">{description}</p>
+    <span class="text-primary font-bold text-lg">{price}</span>
+  </div>
+</div>

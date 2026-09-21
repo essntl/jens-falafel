@@ -1,11 +1,121 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import MenuCard from '../components/MenuCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import heroImage from '../assets/hero.png';
+import aboutImage from '../assets/additional.png';
+import Falafel from '../assets/food-assets/falafel.jpg';
+import FalafelWrap from '../assets/food-assets/falafelwrap.png';
+import FalafelBolle from '../assets/food-assets/falafelbolle.png';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const popularItems = [
+  {
+    image: Falafel,
+    name: 'Klassisk Falafel',
+    description: 'Sprø falafel i pitabrød med salat og hvitløksaus.',
+    price: 'kr 89,-',
+  },
+  {
+    image: FalafelWrap,
+    name: 'Falafel Wrap',
+    description: 'Falafel rullet i lompe med tzatziki og syltet rødløk.',
+    price: 'kr 95,-',
+    isNew: true,
+  },
+  {
+    image: FalafelBolle,
+    name: 'Falafelbolle',
+    description: 'Falafel over quinoa, hummus og grønnsaker.',
+    price: 'kr 109,-',
+  },
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Jens Falafel - Oslos beste falafel">
+  <!-- Hero -->
+  <section
+    class="relative bg-cover bg-position-[center_20%] text-white"
+    style={`background-image: url('${heroImage.src}')`}
+  >
+    <div class="absolute inset-0 bg-black/40" aria-hidden="true"></div>
+    <div class="relative max-w-6xl mx-auto px-4 py-32 md:py-52 text-left">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">
+        <span class="text-primary-light">Jens</span> Falafel
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl">
+        Oslos mest legendariske falafel, servert med kjærlighet siden år 2000.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a
+          href="/meny"
+          class="bg-primary hover:bg-primary-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+        >
+          Se menyen
+        </a>
+        <a
+          href="/kontakt"
+          class="border border-gray-500 hover:border-white text-gray-300 hover:text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+        >
+          Kontakt oss
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Populære retter -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <SectionHeading
+      title="Populære retter"
+      subtitle="Våre mest bestilte favoritter"
+    />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {popularItems.map((item) => (
+        <MenuCard {...item} />
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <a
+        href="/meny"
+        class="text-primary hover:text-primary-dark font-semibold transition-colors"
+      >
+        Se hele menyen &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- Om oss kort -->
+  <section class="bg-surface-dark">
+    <div class="max-w-6xl mx-auto px-4 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-secondary mb-4">
+            Velkommen til Jens Falafel
+          </h2>
+          <p class="text-gray-600 mb-4">
+            Siden år 2000 har vi servert Oslos beste falafel laget etter
+            hemmelige oppskrifter. Våre retter er tilberedt med ferske
+            råvarer og en lidenskap for autentisk smak.
+          </p>
+          <p class="text-gray-600 mb-6">
+            Enten du er ute etter en klassisk falafel i pitabrød, en sunn
+            falafelbolle, eller noe sterkt for de tøffe — vi har noe for alle.
+          </p>
+          <a
+            href="/om-oss"
+            class="inline-block bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-2 rounded-lg transition-colors"
+          >
+            Les mer om oss
+          </a>
+        </div>
+        <div class="rounded-lg h-84 overflow-hidden">
+          <Image
+            src={aboutImage}
+            alt="Falafel fra Jens Falafel"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

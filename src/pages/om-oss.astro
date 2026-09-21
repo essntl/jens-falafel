@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const info = [
+  { label: 'Grunnlagt', value: 'År 2000' },
+  { label: 'Adresse', value: 'Falafelgata 1, Oslo' },
+  { label: 'Åpningstider', value: 'Man-Søn: 11:00 - 22:00' },
+  { label: 'Telefon', value: '700 00 000' },
+  { label: 'Spesialitet', value: 'Hemmelig krydderblanding siden 1998' },
+];
+---
+
+<Layout title="Om oss - Jens Falafel" description="Lær mer om Jens Falafel og vår historie.">
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <SectionHeading
+      title="Om Jens Falafel"
+      subtitle="Historien bak Oslos beste falafel"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h3 class="text-xl font-bold text-secondary mb-4">Vår historie</h3>
+        <p class="text-gray-600 mb-4">
+          Jens Falafel ble grunnlagt i år 2000 med en enkel visjon: å lage
+          den beste falafelen i Oslo. Med en hemmelig krydderblanding utviklet
+          i 1998, har vi perfeksjonert oppskriften over mange år.
+        </p>
+        <p class="text-gray-600 mb-4">
+          Vi bruker kun ferske råvarer og tilbereder alt fra bunnen av, hver
+          eneste dag. Våre gjester fortjener det beste, og det er nettopp det
+          vi leverer.
+        </p>
+        <p class="text-gray-600">
+          Fra vår lille restaurant i Falafelgata har vi blitt et av Oslos
+          mest elskede gatekjøkken. Takk til alle våre trofaste kunder!
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden">
+        <div class="bg-secondary px-6 py-3">
+          <h3 class="text-white font-semibold">Informasjon</h3>
+        </div>
+        <div class="divide-y divide-gray-100">
+          {info.map((row) => (
+            <div class="flex justify-between px-6 py-3">
+              <span class="text-gray-500 font-medium">{row.label}</span>
+              <span class="text-secondary">{row.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
